@@ -18,9 +18,9 @@ Ingesting logs from a Honeypot VM setup within Azure to examine traffic location
 ### Step 2 - Allow all inbound traffic into the VM to fully expose it within a Network Security Group
 ### Step 3 - Enable Log Analytics Workspace and Microsoft Defender
 ### Step 4 - Connect Log Analytics Workspace to the VM
-### Step 5 - Add Microsoft Sentinel (SIEM) to the Workspace
+### Step 5 - Add Microsoft Sentinel (SIEM) to the Log Analytics Workspace
 ### Step 6 - Run Powershell script on the VM to capture custom logs (Geolocation of failed RDP attempts)
-### Step 7 - Extract logs from VM and display location of failed RDP attempts
-- Create a new Workbook within Microsoft Sentinel
-- Use the query in the *query.txt* to extract needed information from the custom logs.
-
+- Run logs.ps1 on the VM
+### Step 7 - Add custom logs to Log Analytics Workspace
+### Step 8 - Extract logs from VM and display location of failed RDP attempts
+- Use the query within *query.txt* to extract needed information from the custom logs.
