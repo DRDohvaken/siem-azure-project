@@ -1,0 +1,19 @@
+//Query to display the location of attacks within the workbook using KQL (Kusto Query Language)
+FAILED_RDP_WITH_GEO_CL 
+//Extract information from the FAILED_RDP_WITH_GEO_CL query that was created
+| extend username = extract(@"username:([^,]+)", 1, RawData),
+         timestamp = extract(@"timestamp:([^,]+)", 1, RawData),
+         destination = extract(@"destinationhost:([^,]+)", 1, RawData),
+         country = extract(@"country:([^,]+)", 1, RawData),
+         latitude = extract(@"latitude:([^,]+)", 1, RawData),
+         longitude = extract(@"longitude:([^,]+)", 1, RawData),
+         sourcehost = extract(@"sourcehost:([^,]+)", 1, RawData),
+         state = extract(@"state:([^,]+)", 1, RawData),
+         label = extract(@"label:([^,]+)", 1, RawData)
+
+//Remove samplehost examples and blank results
+| where sourcehost != ""
+| where destination != "samplehost"
+
+//Produce table which summarizes results where the information is the same. This is to ensure that the result does not contain duplicates. Instead adds to a count.
+| summarize event_count=count() by latitude, longitude, sourcehost, label, destination, country
