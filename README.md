@@ -1,7 +1,7 @@
 # SIEM Microsoft Sentinel Project
 Ingesting logs from a Honeypot VM setup within Azure to examine traffic location for failed RDP attempts
 
-## Failed RDP attempts by Geolocation after 2 hours being exposed to the Internet
+## Failed RDP attempts by Geolocation after 2 hours
 ![map](https://github.com/DRDohvaken/siem-azure-project/assets/8603276/fe3f5062-c547-479d-b181-d0a66596c3fe)
 
 ## Network Topology
